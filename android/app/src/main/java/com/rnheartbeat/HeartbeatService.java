@@ -14,10 +14,12 @@ import android.os.Build;
 
 import com.facebook.react.HeadlessJsTaskService;
 
-public class HeartbeartService extends Service {
+public class HeartbeatService extends Service {
 
     private static final int SERVICE_NOTIFICATION_ID = 12345;
     private static final String CHANNEL_ID = "HEARTBEAT";
+
+    private static final int INTERVAL_CHECK = 2000;
 
     private Handler handler = new Handler();
     private Runnable runnableCode = new Runnable() {
@@ -27,7 +29,7 @@ public class HeartbeartService extends Service {
             Intent myIntent = new Intent(context, HeartbeatEventService.class);
             context.startService(myIntent);
             HeadlessJsTaskService.acquireWakeLockNow(context);
-            handler.postDelayed(this, 2000);
+            handler.postDelayed(this, INTERVAL_CHECK);
         }
     };
     private void createNotificationChannel() {
