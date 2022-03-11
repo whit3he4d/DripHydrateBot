@@ -3,8 +3,6 @@ import {connect} from 'react-redux';
 import {ImageBackground, StyleSheet, Text, View} from 'react-native';
 import background from './background.jpg';
 
-// import Heartbeat from './Heartbeat';
-
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -18,9 +16,11 @@ const styles = StyleSheet.create({
 const App = () => {
   return (
     <View style={styles.container}>
-      <ImageBackground source={background} resizeMode="cover" style={styles.image}>
-
-      </ImageBackground>
+      <ImageBackground
+        source={background}
+        resizeMode="cover"
+        style={styles.image}
+      />
     </View>
   );
 };
